@@ -1,12 +1,12 @@
 "use client";
 import { BookOpen } from "lucide-react";
 import { Button } from "../ui/Button";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type Book = {
   id: number;
   title: string;
-  cover: string;
+  cover: StaticImageData;
   author: string;
   category: string;
   available: boolean;
