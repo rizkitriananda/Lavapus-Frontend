@@ -5,39 +5,45 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import BookCard from "../books/BookCard";
 import type { Book } from "@/types";
+import bukuHujanTereliye from "../../public/image/books/hujan_tereliye.jpg";
+import bukuMatahariTereliye from "../../public/image/books/matahari_tereliye.jpg";
 
 export const BookRecommendations: React.FC = () => {
   // Mock data - akan diganti dengan API call
   const books: Book[] = [
     {
       id: 1,
-      title: "Bumi Manusia",
-      author: "Pramoedya Ananta Toer",
-      cover: "",
+      title: "Matahari",
+      author: "Tere Liye",
+      cover: bukuMatahariTereliye,
+      stock: 1,
       category: "Fiksi",
       available: true,
     },
     {
       id: 2,
-      title: "Laskar Pelangi",
-      author: "Andrea Hirata",
-      cover: "",
+      title: "Hujan",
+      author: "Tere Liye",
+      cover: bukuHujanTereliye,
+      stock: 5,
       category: "Fiksi",
       available: true,
     },
     {
       id: 3,
-      title: "Negeri 5 Menara",
-      author: "Ahmad Fuadi",
-      cover: "",
-      category: "Inspirasi",
-      available: false,
+      title: "Matahari",
+      author: "Tere Liye",
+      cover: bukuMatahariTereliye,
+      stock: 1,
+      category: "Fiksi",
+      available: true,
     },
     {
       id: 4,
       title: "Hujan",
       author: "Tere Liye",
-      cover: "",
+      cover: bukuHujanTereliye,
+      stock: 5,
       category: "Fiksi",
       available: true,
     },

@@ -70,7 +70,7 @@ const HomePage = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  pb-24">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8 md:p-12 mb-12 flex flex-col md:flex-row items-center justify-between">
+      <div className="bg-linear-to-r from-blue-50 to-blue-100 rounded-2xl p-8 md:p-12 mb-12 flex flex-col md:flex-row items-center justify-between">
         <div className="mb-8 md:mb-0 md:w-1/2">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Selamat Datang di
