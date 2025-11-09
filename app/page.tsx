@@ -171,7 +171,7 @@ const HomePage = () => {
         </div>
         <div className="text-center mt-6">
           <a href="/community">
-            <Button> Lihat Komunitas</Button>
+            <Button>Lihat Komunitas</Button>
           </a>
         </div>
       </section>
