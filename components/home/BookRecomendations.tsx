@@ -3,14 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import BookCard from "../books/BookCard";
-import type { Book } from "@/types";
+import BookCard from "@/components/books/BookCard";
 import bukuHujanTereliye from "../../public/image/books/hujan_tereliye.jpg";
 import bukuMatahariTereliye from "../../public/image/books/matahari_tereliye.jpg";
 
 export const BookRecommendations: React.FC = () => {
   // Mock data - akan diganti dengan API call
-  const books: Book[] = [
+  const books = [
     {
       id: 1,
       title: "Matahari",
