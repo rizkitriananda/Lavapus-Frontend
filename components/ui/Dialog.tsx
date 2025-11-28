@@ -20,8 +20,8 @@ export const Dialog: React.FC<DialogProps> = ({
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 bg-black/50 z-50" />
-        <DialogPrimitive.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-lg p-6 w-full max-w-md z-50 max-h-[90vh] overflow-y-auto">
+        <DialogPrimitive.Overlay className="fixed inset-0 bg-black/50 z-50 transition-opacity ease-in-out duration-300 data-[state=open]:opacity-100 data-[state=closed]:opacity-0" />
+        <DialogPrimitive.Content className="fixed left-1/2 top-0 -translate-x-1/2 bg-white rounded-xl shadow-lg p-6 w-full max-w-md z-50 max-h-[90vh] overflow-y-auto transition-all ease-in-out duration-300 opacity-0 data-[state=open]:opacity-100 data-[state=open]:top-1/2 data-[state=open]:-translate-y-1/2">
           <div className="flex items-center justify-between mb-4">
             <DialogPrimitive.Title className="text-xl font-bold text-gray-900">
               {title}

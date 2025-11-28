@@ -1,22 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { BookOpen, Search, Bell, Menu } from "lucide-react";
+import React from "react";
+import { Menu, Search, Bell } from "lucide-react";
 import * as Avatar from "@radix-ui/react-avatar";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
-interface HeaderProps {
+interface AdminHeaderProps {
   onMenuClick: () => void;
 }
-
-export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
-  const [searchOpen, setSearchOpen] = useState(false);
-
+const AdminHeader: React.FC<AdminHeaderProps> = ({ onMenuClick }) => {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-4">
             <button
@@ -25,13 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             >
               <Menu className="w-6 h-6" />
             </button>
-            <Link href="/" className="flex items-center gap-2">
-              <BookOpen className="w-8 h-8 text-blue-600" />
-              <span className="text-2xl font-bold text-blue-600">
-                PerpusVel
-              </span>
-            </Link>
-            <div className="relative hidden md:block ml-4">
+            <div className="relative hidden md:block">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
@@ -42,35 +33,22 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
-            >
-              <Search className="w-6 h-6 text-gray-600" />
-            </button>
-
-            <Link
-              href="/notifications"
-              className="p-2 hover:bg-gray-100 rounded-lg relative transition-colors"
-            >
+            <button className="p-2 hover:bg-gray-100 rounded-lg relative transition-colors">
               <Bell className="w-6 h-6 text-gray-600" />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-            </Link>
+            </button>
 
             <DropdownMenu.Root>
               <DropdownMenu.Trigger className="flex items-center gap-3 hover:bg-gray-100 rounded-lg p-2 transition-colors">
                 <Avatar.Root className="w-10 h-10 rounded-full overflow-hidden">
-                  <Avatar.Image
-                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=user"
-                    alt="User"
-                  />
+                  <Avatar.Image src="https://api.dicebear.com/7.x/avataaars/svg?seed=admin" />
                   <Avatar.Fallback className="bg-blue-600 text-white flex items-center justify-center w-full h-full">
-                    U
+                    A
                   </Avatar.Fallback>
                 </Avatar.Root>
                 <div className="hidden md:block text-left">
-                  <p className="text-sm font-medium text-gray-900">User</p>
-                  <p className="text-xs text-gray-500">user@perpusvel.com</p>
+                  <p className="text-sm font-medium text-gray-900">Admin</p>
+                  <p className="text-xs text-gray-500">admin@perpusvel.com</p>
                 </div>
                 <ChevronDownIcon className="w-4 h-4 text-gray-600" />
               </DropdownMenu.Trigger>
@@ -82,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
                   </DropdownMenu.Item>
                   <DropdownMenu.Separator className="h-px bg-gray-200 my-2" />
                   <DropdownMenu.Item className="px-4 py-2 hover:bg-red-50 text-red-600 rounded cursor-pointer outline-none">
-                    <Link href="/">Keluar</Link>
+                    <Link href="/"> Keluar</Link>
                   </DropdownMenu.Item>
                 </DropdownMenu.Content>
               </DropdownMenu.Portal>
@@ -90,20 +68,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           </div>
         </div>
       </div>
-
-      {searchOpen && (
-        <div className="md:hidden p-4 border-t">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Cari buku..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              autoFocus
-            />
-          </div>
-        </div>
-      )}
     </header>
   );
 };
+export default AdminHeader;

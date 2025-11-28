@@ -93,3 +93,26 @@ export interface PaginatedResponse<T> {
   perPage: number;
   totalPages: number;
 }
+
+// Admin
+export interface BorrowRecord {
+  id: number;
+  userName: string;
+  bookTitle: string;
+  borrowDate: string;
+  returnDate: string;
+  status: "borrowed" | "returned" | "overdue";
+}
+
+export interface Stats {
+  totalBooks: number;
+  totalUsers: number;
+  activeBorrowings: number;
+  totalPosts: number;
+  change: {
+    books: number;
+    users: number;
+    borrowings: number;
+    posts: number;
+  };
+}

@@ -3,10 +3,14 @@
 "use client";
 import { useState } from "react";
 import { EyeNoneIcon, EyeOpenIcon } from "@radix-ui/react-icons";
+import authObject from "@/public/image/items/auth_object.png";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const LoginPage = ({ onLogin }: any) => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +19,12 @@ const LoginPage = ({ onLogin }: any) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    onLogin();
+    // onLogin();
+    console.log(formData);
+
+    formData.email == "admin@gmail.com"
+      ? router.push("/admin/")
+      : router.push("/login");
   };
 
   return (
@@ -34,38 +43,20 @@ const LoginPage = ({ onLogin }: any) => {
           <br />
           dan perluas wawasanmu kapan saja.
         </p>
-        <img src="/api/placeholder/400/400" alt="Reading" className="mt-8" />
+        <Image src={authObject} width={400} alt="auth image" />
       </div>
 
       {/* Right Side - Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-bold mb-2">
-            {isLogin
-              ? "Masuk Anggota Perpustakaan"
-              : "Daftar Anggota Perpustakaan"}
+            Masuk Anggota Perpustakaan
           </h2>
           <p className="text-gray-600 mb-8">
-            {isLogin
-              ? "Masukkan Email dan Kata Sandi Anda."
-              : "Lengkapi data Anda untuk akses koleksi buku."}
+            Masukkan Email dan Kata Sandi Anda
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {!isLogin && (
-              <div>
-                <input
-                  type="text"
-                  placeholder="Nama Lengkap"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-blue-600 outline-none"
-                />
-              </div>
-            )}
-
             <div>
               <input
                 type="email"
@@ -110,13 +101,13 @@ const LoginPage = ({ onLogin }: any) => {
           </form>
 
           <p className="mt-6 text-center text-gray-600">
-            {isLogin ? "Belum Punya Akun?" : "Sudah Punya Akun?"}{" "}
-            <button
-              onClick={() => setIsLogin(!isLogin)}
+            Belum punya akun?
+            <a
+              href="/register"
               className="text-blue-600 font-medium hover:underline"
             >
-              {isLogin ? "Daftar" : "Masuk"}
-            </button>
+              Daftar
+            </a>
           </p>
         </div>
       </div>

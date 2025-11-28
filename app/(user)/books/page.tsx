@@ -1,6 +1,6 @@
 import BookCard from "@/components/books/BookCard";
-import bukuHujanTereliye from "../../public/image/books/hujan_tereliye.jpg";
-import bukuMatahariTereliye from "../../public/image/books/matahari_tereliye.jpg";
+import bukuHujanTereliye from "@/public/image/books/hujan_tereliye.jpg";
+import bukuMatahariTereliye from "@/public/image/books/matahari_tereliye.jpg";
 const BooksPage = () => {
   const books = [
     {
