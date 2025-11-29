@@ -35,11 +35,6 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  // Close menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [url]);
-
   return (
     <>
       {/* Overlay backdrop */}
